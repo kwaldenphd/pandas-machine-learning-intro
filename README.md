@@ -5,102 +5,33 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 ## Lab Goals
 
-This lab covers the core components of `pandas`, including `Series` and `DataFrame` objects. It covers how to manually create and interact with `Series` and `DataFrame` objects in the Python programming environment. It covers loading a structured data file (CSV and JSON) as a `DataFrame`, and sorting, selecting, and filtering the resulting `DataFrame`. The lab also covers common data parsing and wrangling challenges like duplicate entries and missing data.
+This lab covers the core components of `pandas`, with a focus on elements of `pandas` used in machine learning. It covers loading a structured data file (CSV and JSON) as a `DataFrame`, and sorting, selecting, and filtering the resulting `DataFrame`. The lab also covers common data parsing and wrangling challenges like duplicate entries and missing data. It covers the basic of data wrangling and manipulation in Python using `pandas`, as well as the fundamentals of creating plots in Python using `matplotlib`, including the basic anatomy of a `matplotlib` figure.
 
 By the end of this lab, students will be able to;
-- Understand the basic components of `Series` and `DataFrame` objects in `pandas`
-- Manually create `Series` and `DataFrame` objects in Python using `pandas`
 - Load a structured data file as a `DataFrame` in Python using `pandas`
 - Interact with a `DataFrame` using sorting, selecting, and filtering operations
-- Remove duplicate rows from a `DataFrame`
-- Understand how to approach common `DataFrame` parsing and loading errors using `pandas`
-- Understand the basic components of how to handle missing values in a `DataFrame`
-
-[Click here](https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/pandas-intro.ipynb) and select the "Save as" option to download this lab as a Jupyter Notebook.
-
-## Lab Goals
-
-This lab covers the basic of data wrangling and manipulation in Python using `pandas`. 
-
-By the end of this lab, students will be able to:
 - Compute basic summary statistics in Python using `pandas`
-- Understand the basics of working with time series data in Python using `pandas`
-- Manipulate and reshape data using `pivot`, `melt`, `pivot_table`, `stack`, and `unstack`
 - Combining and joining datasets using `concat` and `merge`
 - Understand the basics of renaming, mapping, and reindexing structured data in Python using `pandas`
 
-[Click here](https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/eda-pandas.ipynb) and select the "Save as" option to download this lab as a Jupyter Notebook.
+[Click here](LINK TO BE ADDED) and select the "Save as" option to download this lab as a Jupyter Notebook.
 
-## Lab Goals
-
-This lab covers how to generate `matplotlib` plots for data stored in a `pandas` `DataFrame`. It provides an overview of how to generate a variety of common plot types, including line plots, bar charts, histograms, bax plots, area plots, scatter plots, and pie charts. It also covers how `pandas`'s plotting function handles missing data. It provides a comparison of the `matplotlib` and `seaborn` plotting packages and provides an introduction to `seaborn` with sample code. 
-
-By the end of this lab, students will be able to:
-- Understand how to generate `matplotlib` plots for data stored in a `pandas` `DataFrame`, for a variety of plot types
-- Understand how to navigate the `pandas` documentation to troubleshoot and further explore `pandas`'s plotting functions
-- Understand the basic distinctions and relationship between `matplotlib` and `seaborn`
-
-[Click here](https://raw.githubusercontent.com/kwaldenphd/more-with-matplotlib/main/more-with-matplotlib.ipynb) and select the "Save As" option to download this lab as as Jupyter Notebook.
-
-## Lab Goals
-
-This lab covers the fundamentals of creating plots in Python using `matplotlib`. It covers the basic anatomy of a `matplotlib` figure and the customization and styling options available. It provides an overview of common plot types, as well as image export options. It provides a comparison and overview of `matplotlib`'s two interfaces: object-oriented and `pyplot`. 
-
-By the end of this lab, students will be able to:
-- Understand the core components of a `matplotlib` figure
-- Be able to write code that generates a `matplotlib` figure
-- Understand the customization and styling options available in `matplotlib`
-- Be able to customize a `matplotlib` figure using available styling options
-- Understand the range of plot types available in `matplotlib`
-- Be comfortable navigating `matplotlib` documentation
-- Be able to save a `matplotlib` figure as a static image file
-
-[Click here](https://raw.githubusercontent.com/kwaldenphd/matplotlib-intro/main/matplotlib-intro.ipynb) and select the "Save as" option to download this lab as a Jupyter Notebook.
 
 ## Acknowledgements
 
 Information and exercises in this lab are adapted from the following resources:
 - `pandas` package ["Getting started"](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/) documentation.
-- Wes McKinney's [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
-  * Chapter 5 "Getting Started with pandas" (125-168)
-  * Chapter 7 "Data Cleaning and Preparation" (195-224)
-  * Chapter 8 "Data Wrangling: Join, Combine, and Reshape" (225-256)
-  * Chapter 10 "Data Aggregation and Group Operations" (293-322)
-  
-All figures shown in this lab are from the `pandas` "Getting Started" tutorials.
-
-## Acknowledgements
-
-Information and exercises in this lab are adapted from the following resources:
-- `pandas` package ["Getting started"](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/) documentation.
-- Wes McKinney's [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
-  * Chapter 5 "Getting Started with pandas" (125-168)
-  * Chapter 7 "Data Cleaning and Preparation" (195-224)
-  * Chapter 8 "Data Wrangling: Join, Combine, and Reshape" (225-256)
-  * Chapter 10 "Data Aggregation and Group Operations" (293-322)
-  
-  ## Acknowledgements
-  
-  The author consulted the following resources when writing  this tutorial:
-- Chapter 4.14 "Visualization With Seaborn" from Jake VanderPlas, [*Python Data Science Handbook: Essential Tools for Working with Data*](https://jakevdp.github.io/PythonDataScienceHandbook/04.14-visualization-with-seaborn.html ) (O'Reilly, 2016)
 - `pandas`, [User Guide, "Visualization"](https://pandas.pydata.org/docs/user_guide/visualization.html)
 - `pandas`, [Getting Started, "Plotting"](https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html)
-- Chapter 9 "Plotting and Visualization" from Wes McKinney, [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
-- Chapter 15 "Generating Data" from Eric Matthes, [*Python Crash Course: A Hands-On, Project-Based Introduction to Programming*](https://ehmatthes.github.io/pcc/) (No Starch Press, 2019).
-- [`seaborn` package documentation](https://seaborn.pydata.org/introduction.html)
-
-## Acknowledgements
-
-The author consulted the following materials when building this tutorial:
-- `matplotlib`, ["Usage Guide"](https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py)
+- Wes McKinney's [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
+  * Chapter 5 "Getting Started with pandas" (125-168)
+  * Chapter 7 "Data Cleaning and Preparation" (195-224)
+  * Chapter 8 "Data Wrangling: Join, Combine, and Reshape" (225-256)
+  * Chapter 9 "Plotting and Visualization" (257-292)
+  * Chapter 10 "Data Aggregation and Group Operations" (293-322)
 - `matplotlib`, ["Tutorials"](https://matplotlib.org/tutorials/index.html)
-- `pandas` documentation, ["Getting Started: Plotting"](https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html)
-- Chapter 9 "Plotting and Visualization" from Wes McKinney, [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
-- Ventsislav Yordanov, ["Data Science with Python: Intro to Data Visualization with Matplotlib"](https://towardsdatascience.com/data-science-with-python-intro-to-data-visualization-and-matplotlib-5f799b7c6d82) *Towards Data Science* (21 July 2018)
-- Chapter 15 "Generating Data" from Eric Matthes, [*Python Crash Course: A Hands-On, Project-Based Introduction to Programming*](https://ehmatthes.github.io/pcc_2e/) (No Starch Press, 2019).
-- Chapter 4 "Visualization with Matplotlib" from Jake VanderPlas, [*Python Data Science Handbook: Essential Tools for Working with Data*](https://jakevdp.github.io/PythonDataScienceHandbook/) (O'Reilly, 2016)
 
-All figures in this lab come from the `matplotlib` documentation and tutorials.
+All figures shown in this lab are from the `pandas` "Getting Started" tutorials or the `matplotlib` documentation and tutorials.
 
 # Table of Contents
 
