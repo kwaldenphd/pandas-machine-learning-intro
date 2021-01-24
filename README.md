@@ -5,7 +5,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 ## Lab Goals
 
-This lab covers the core components of `pandas`, with a focus on elements of `pandas` used in machine learning. It covers loading a structured data file (CSV and JSON) as a `DataFrame`, and sorting, selecting, and filtering the resulting `DataFrame`. The lab also covers common data parsing and wrangling challenges like duplicate entries and missing data. It covers the basic of data wrangling and manipulation in Python using `pandas`, as well as the fundamentals of creating plots in Python using `matplotlib`, including the basic anatomy of a `matplotlib` figure.
+This lab covers the core components of `pandas`, with a focus on elements of `pandas` used in machine learning. It covers loading a structured data file (CSV and JSON) as a `DataFrame`, and sorting, selecting, and filtering the resulting `DataFrame`. The lab also covers common data parsing and wrangling challenges like duplicate entries and missing data. It covers the basic of data wrangling and manipulation in Python using `pandas`, as well as the fundamentals of creating plots in Python using `matplotlib`.
 
 By the end of this lab, students will be able to;
 - Load a structured data file as a `DataFrame` in Python using `pandas`
@@ -20,9 +20,10 @@ By the end of this lab, students will be able to;
 ## Acknowledgements
 
 Information and exercises in this lab are adapted from the following resources:
-- `pandas` package ["Getting started"](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/) documentation.
-- `pandas`, [User Guide, "Visualization"](https://pandas.pydata.org/docs/user_guide/visualization.html)
-- `pandas`, [Getting Started, "Plotting"](https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html)
+- `pandas` documentation
+  * ["Getting started"](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/)
+  * [User Guide, "Visualization"](https://pandas.pydata.org/docs/user_guide/visualization.html)
+  * [Getting Started, "Plotting"](https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html)
 - Wes McKinney's [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
   * Chapter 5 "Getting Started with pandas" (125-168)
   * Chapter 7 "Data Cleaning and Preparation" (195-224)
@@ -37,10 +38,8 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials 
 
 - [What do we mean by `pandas`](#what-do-we-mean-by-pandas)
 - [Data structures in `pandas`](#data-structures-in-pandas)
-  * [`Series`](#series)
   * [`DataFrame`](#dataframe)
 - [From structured data file to `DataFrame`](#from-structured-file-to-dataframe)
-  * [From `DataFrame` to data file](#from-dataframe-to-data-file)
 - [Interacting with a `DataFrame`](#interacting-with-a-dataframe)
   * [Sorting](#sorting)
   * [Subsetting](#subsetting)
@@ -51,34 +50,23 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials 
   * [Handling missing data](#handling-missing-data)
     * [`.dropna()`](#dropna)
     * [`.fillna()`](#fillna)
-- [Practice Problems](#practice-problems)
-- [Lab Notebook Questions](#lab-notebook-questions)
-
 - [Summary Statistics and Calculations](#summary-statistics-and-calculations)
   * [Creating New Columns Based on Existing Columns](#creating-new-columns-based-on-existing-columns)
-- [Manipulating and Reshaping Data](#manipulating-and-reshaping-data)
-  * [Working with Time Series Data](#working-with-time-series-data)
-  * [`.pivot()`](#pivot)
-  * [`.melt()`](#melt)
-  * [`.pivot_table()`](#pivot_table)
-  * [`.stack()` and `.unstack()`](#stack-and-unstack)
 - [Combining Data](#combining-data)
   * [`.concat()`](#concat)
   * [`.merge()`](#merge)
 - [Renaming, Mapping, and Reindexing](#renaming-mapping-and-reindexing)
   * [Renaming Columns](#renaming-columns)
-- [Practice Problems](#practice-problems)
-- [Lab Notebook Questions](#lab-notebook-questions)  
-
 - [Getting started with `matplotlib`](#getting-started-with-matplotlib)
 - [Anatomy of a `matplotlib` figure](#anatomy-of-a-matplotlib-figure)
   * [`Figure`](#figure)
   * [`Axes`](#axes)
   * [`Axis`](#axis)
   * [Everything Else (`Artists`)](#everything-else-artists)
-  
 - [`pandas` and `matplotlib`](#pandas-and-matplotlib)
   * [Plotting in `pandas`Uusing `.plot()`](#plotting-in-pandas-using-plot)
+- [Project Prompts](#project-prompts)
+- [Lab Notebook Questions](#lab-notebook-questions)
 
 # What do we mean by pandas
 
