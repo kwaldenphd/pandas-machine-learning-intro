@@ -442,14 +442,14 @@ Argument | Description
 `doublequote` | Specifies how to handle quoting character within a field
 `escapechar` | Specifies the string used to escape the delimiter character if `quoting` is set to `QUOTE_NONE`
 
-<blockquote>Q3: Write code that loads in a structured data file that uses a pipe symbol (|) as a delimiter. Include code + comments.</blockquote>
+<blockquote>Q3: Write code that loads in a different CSV file as a DataFrame and accomplishes each of the following tasks. Include code + comments.
+ <ul><li>Shows the first five rows</li>
+  <li>Shows the last five rows</li>
+  <li>Checks the data types for each column</li>
+  <li>Returns a technical summary for the DataFrame</li>
+ </ul>
+ </blockquote>
  
-<blockquote>Q4: Write code that loads in structured data file in which missing data values are represented by "?", "??", and "-" characters. Include code + comments.</blockquote>
-
-<blockquote>Q5: Write code that ignores the last 6 rows of a structured data file. Include code + comments.</blockquote>
-
-<blockquote>Q6: Write code that parses a structured data file in which commas "," are used as a thousands separator. Include code + comments.</blockquote>
-
 # Interacting with a `DataFrame`
 
 ## Sorting
@@ -708,7 +708,7 @@ df.fillna(method='ffill')
 df.fillna(method='bfill')
 ```
 
-<blockquote>Q7: Using the DataFrame you created for Q2, write code that executes AT LEAST FOUR of the following tasks. Include code + comments.
+<blockquote>Q4: Using the DataFrame you created for Q3, write code that executes AT LEAST FOUR of the following tasks. Include code + comments.
  <ul>
   <li>Sorts a column by ascending values</li>
   <li>Sorts a column by descending values</li>
@@ -849,7 +849,7 @@ titanic.groupby("Pclass")["Pclass"].count()
 - `.groupby()` follows a `split-apply-combine` pattern
 - `.value_counts()` can be a shorthand for getting the number of entries for each category in a field
 
-<blockquote>Q8: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.</blockquote>
+<blockquote>Q5: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.</blockquote>
 
 ## Creating New Columns Based on Existing Columns
 
@@ -901,9 +901,9 @@ air_quality.head()
 
 188. Python's other mathematical (`+`, `-`, `*`, `/`) and logical (`<`, `>`, `=`, etc.) all work element-wise.
 
-<blockquote>Q9: Describe element-wise calculation in your own words.</blockquote>
+<blockquote>Q6: Describe element-wise calculation in your own words.</blockquote>
 
-<blockquote>Q10: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.</blockquote>
+<blockquote>Q7: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.</blockquote>
 
 # Combining Data
 
@@ -1057,9 +1057,9 @@ air_quality.head()
 - Mutliple tables can be concatenated row-rise or column-wise using the `.concat()` function
 - SQL-style joins can be accomplished using `.merge()`
 
-<blockquote>Q11: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?</blockquote>
+<blockquote>Q8: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?</blockquote>
 
-<blockquote>Q12: Write sample code for both functions. Include code + comments.</blockquote>
+<blockquote>Q9: Write sample code for both functions. Include code + comments.</blockquote>
 
 # Renaming, Mapping, and Reindexing
 
@@ -1276,7 +1276,7 @@ fig, axs = plt.subplots(2, 2)
 
 279. Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
 
-<blockquote>Q13: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?</blockquote>
+<blockquote>Q10: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?</blockquote>
 
 280. For more on `matplotlib`:
 - [Introduction to `matplotlib`](https://github.com/kwaldenphd/matplotlib-intro)
@@ -1447,38 +1447,22 @@ Parameter | Explanation
 
 # Lab Notebook Questions
 
-Q1: Describe a Series object in your own words.
+Q1: Describe a DataFrame in your own words.
 
-Q2: Create your own Series object. Write code the accomplishes the following tasks. Include code + comments.
-- Assign unique index attributes for each series value
-- Access a series value(s) using the index label
-- Perform at least two unique arithmetic operations on the Series
-- Test for null values in your series
-
-Q3: Describe a DataFrame in your own words.
-
-Q4: Create your own small DataFrame. Write code that accomplishes the following tasks. Include code + comments.
+Q2: Create your own small DataFrame. Write code that accomplishes the following tasks. Include code + comments.
 - Change the original column order
 - Select a specific column(s) using its index label or name attribute
 - Select a specific row(s) using its index label or index value
 - Remove a column from the DataFrame
 - Determine summary statistics for values in the DataFrame
 
-Q5: Write code that loads in a different CSV file as a DataFrame and accomplishes each of the following tasks. Include code + comments.
+Q3: Write code that loads in a different CSV file as a DataFrame and accomplishes each of the following tasks. Include code + comments.
 - Shows the first five rows
 - Shows the last five rows
 - Checks the data types for each column
 - Returns a technical summary for the DataFrame
 
-Q6: Write code that loads in a structured data file that uses a pipe symbol (|) as a delimiter. Include code + comments.
- 
-Q7: Write code that loads in structured data file in which missing data values are represented by "?", "??", and "-" characters. Include code + comments.
-
-Q8: Write code that ignores the last 6 rows of a structured data file. Include code + comments.
-
-Q9: Write code that parses a structured data file in which commas "," are used as a thousands separator. Include code + comments
-
-Q10: Using the DataFrame you created for Q5, write code that executes AT LEAST FOUR of the following tasks. Include code + comments.
+Q4: Using the DataFrame you created for Q3, write code that executes AT LEAST FOUR of the following tasks. Include code + comments.
 - Sorts a column by ascending values
 - Sorts a column by descending values
 - Selects a specific column in the DataFrame
