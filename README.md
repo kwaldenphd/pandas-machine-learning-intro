@@ -1474,22 +1474,14 @@ Q4: Using the DataFrame you created for Q3, write code that executes AT LEAST FO
 - Removes rows with missing values
 - Fills missing values using .fillna, ffill, or bfill
 
-# Lab Notebook Questions
+Q5: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.
 
-Q1: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.
+Q6: Describe element-wise calculation in your own words.
 
-Q2: Describe element-wise calculation in your own words.
+Q7: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.
 
-Q3: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.
+Q8: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?
 
-Q4: In your own words, provide a brief description/explanation for each function: .pivot(), .melt(), .pivot_table(), .stack(), and .unstack().
+Q9: Write sample code for both functions. Include code + comments.
 
-Q5: Write sample code for both functions. Include code + comments.
-
-Q6: Describe how you are thinking about needing to use these functions in relation to data you're interested in working with as part of the final project.
-
-Q7: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?
-
-Q8: Write sample code for both functions. Include code + comments.
-
-Q9: Describe how you are thinking about needing to use these functions for the data you plan to work with in the final project.
+Q10: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?
