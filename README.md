@@ -137,6 +137,9 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials 
 
 30. Say we have two dictionaries that include equal-length lists:
 ```Python
+# import pandas
+import pandas as pd
+
 # create dictionary with three equal-length lists
 data = {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'], 
         'year': [2000, 2001, 2002, 2001, 2002, 2003],
