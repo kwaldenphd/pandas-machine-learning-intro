@@ -735,7 +735,7 @@ df.fillna(method='bfill')
 143. We could use `.mean()` to get the average age of Titanic passengers.
 ```Python
 # load titanic data from url
-titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/titanic.csv)
+titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/data/titanic.csv")
 
 # show first 5 rows of newly-loaded dataframe
 titanic.head(5)
@@ -932,7 +932,7 @@ air_quality.head()
 air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates=True)
 
 # set column names
-air_quality_no2 = air_quality_no2[["data.utc", "location", "parameter", "value"]]
+air_quality_no2 = air_quality_no2[["date.utc", "location", "parameter", "value"]]
 
 # make sure columns are renamed and no2 data is loaded
 air_quality_no2.head()
@@ -941,7 +941,7 @@ air_quality_no2.head()
 air_quality_pm25 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_pm25_long.csv", parse_dates=True)
 
 # rename columns
-air_quality_pm25 = air_quality_pm25[["data.utc", "location", "parameter", "value"]]
+air_quality_pm25 = air_quality_pm25[["date.utc", "location", "parameter", "value"]]
 
 # make sure columns are renamed and pm25 data is loaded
 air_quality_pm25.head()
