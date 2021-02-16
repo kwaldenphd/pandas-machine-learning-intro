@@ -14,7 +14,7 @@ By the end of this lab, students will be able to;
 - Combining and joining datasets using `concat` and `merge`
 - Understand the basics of renaming, mapping, and reindexing structured data in Python using `pandas`
 
-[Click here](LINK TO BE ADDED) and select the "Save as" option to download this lab as a Jupyter Notebook.
+[Click here](https://raw.githubusercontent.com/kwaldenphd/pandas-machine-learning-intro/main/pandas-machine-learning-intro.ipynb) and select the "Save as" option to download this lab as a Jupyter Notebook.
 
 ## Acknowledgements
 
