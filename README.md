@@ -7,14 +7,6 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 This lab covers the core components of `pandas`, with a focus on elements of `pandas` used in machine learning. It covers loading a structured data file (CSV and JSON) as a `DataFrame`, and sorting, selecting, and filtering the resulting `DataFrame`. The lab also covers common data parsing and wrangling challenges like duplicate entries and missing data. It covers the basic of data wrangling and manipulation in Python using `pandas`, as well as the fundamentals of creating plots in Python using `matplotlib`.
 
-By the end of this lab, students will be able to;
-- Load a structured data file as a `DataFrame` in Python using `pandas`
-- Interact with a `DataFrame` using sorting, selecting, and filtering operations
-- Compute basic summary statistics in Python using `pandas`
-- Combining and joining datasets using `concat` and `merge`
-- Understand the basics of renaming, mapping, and reindexing structured data in Python using `pandas`
-
-
 [Link to lab overview video](https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cac767ea-fca5-472b-97ed-acd1012e9630) (Panopto, ND users)
 
 ## Acknowledgements
@@ -47,14 +39,8 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials 
     * [Filter](#filter)
     * [Selecting specific rows and columns](#selecting-specific-rows-and-columns)
   * [Removing duplicates](#removing-duplicates)
-  * [Handling missing data](#handling-missing-data)
-    * [`.dropna()`](#dropna)
-    * [`.fillna()`](#fillna)
 - [Summary Statistics and Calculations](#summary-statistics-and-calculations)
   * [Creating New Columns Based on Existing Columns](#creating-new-columns-based-on-existing-columns)
-- [Combining Data](#combining-data)
-  * [`.concat()`](#concat)
-  * [`.merge()`](#merge)
 - [Renaming, Mapping, and Reindexing](#renaming-mapping-and-reindexing)
   * [Renaming Columns](#renaming-columns)
 - [Getting started with `matplotlib`](#getting-started-with-matplotlib)
@@ -65,7 +51,6 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials 
   * [Everything Else (`Artists`)](#everything-else-artists)
 - [`pandas` and `matplotlib`](#pandas-and-matplotlib)
   * [Plotting in `pandas`Uusing `.plot()`](#plotting-in-pandas-using-plot)
-- [Project Prompts](#project-prompts)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
 # What do we mean by pandas
@@ -86,7 +71,7 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials 
 
 7. If you remember back to our earlier work with `.csv` files in Python, there are limitations to the kinds of things we can do with structured data using the `csv` module.
 
-8. Particularly if we want to analyze and visualze structured data in a Python programming environment, we aren't going to get very far loading `csv` files as lists or dictionaries.
+8. Particularly if we want to analyze and visualze structured data in a Python programming environment, we aren't going to get very far loading `.csv` files as lists or dictionaries.
 
 9. We need Python to understand or interact with structured data as structured data.
 
@@ -446,7 +431,7 @@ Argument | Description
 `doublequote` | Specifies how to handle quoting character within a field
 `escapechar` | Specifies the string used to escape the delimiter character if `quoting` is set to `QUOTE_NONE`
 
-<blockquote>Q3: Write code that loads in a different CSV file as a DataFrame and accomplishes each of the following tasks. Include code + comments.
+<blockquote>Q3: Write code that loads in a different data file as a DataFrame and accomplishes each of the following tasks. Include code + comments.
  <ul><li>Shows the first five rows</li>
   <li>Shows the last five rows</li>
   <li>Checks the data types for each column</li>
@@ -655,63 +640,6 @@ data_frame.duplicated()
 new_data_frame = old_data_frame.drop_duplicates()
 ```
 
-## Handling missing data
-
-### `.dropna()`
-
-125. As mentioned previously, we can specify how `pandas` handles missing data, with arguments like `dropna`, `isnull`, and `notnull`.
-
-126. We can specify how `pandas` handles missing values when working with a data frame object.
-
-127. To drop any row containing a missing value:
-```Python
-no_na = data_frame.dropna()
-```
-
-128. To drop any column containing a missing value, we can specify the axis:
-```Python
-no_na_columns = data_frame.dropna(axis=1, how='all')
-```
-### `.fillna`
-
-129. But we can imagine a scenario in which you don't want to filter out missing data.
-
-130. The `.fillna()` function will replace missing data with a specified value.
-
-131. The default function will replace all missing data in the dataframe:
-```Python
-# replaces all missing data with 0
-df.fillna(0)
-```
-
-134. But we can also specify a different missing fill value for specific columns using a dictionary.
-```Python
-# replace missing data in column 1 with 0.5 value and in column 2 with 0
-df.fillna({1: 0.5, 2: 0})
-```
-
-135. In these examples, `.fillna()` returns a new object, but we can also modify the existing object in-place by setting `inplace` to `True`.
-```Python
-# modify existing object in-place
-df.fillna(0, inplace=True)
-```
-
-136. We can also copy (or propogate) the last valid observation into missing data using specific methods that go along with `.fillna()`.
-
-137. Fill Forward (`ffill`) will take the "last known value" and apply it to missing data entries, until you hit the next non-null observation in the data frame.
-
-138. Back Fill (`bfill`) goes the other direction, starting from the last row in the dataset. The "last known value" is applied to missing data entries until you hit the next non-null observation.
-
-139. To use forward fill on all missing values in a dataframe:
-```Python
-df.fillna(method='ffill')
-```
-
-140. To use back fill on all missing values in a dataframe:
-```Python
-df.fillna(method='bfill')
-```
-
 <blockquote>Q4: Using the DataFrame you created for Q3, write code that executes AT LEAST FOUR of the following tasks. Include code + comments.
  <ul>
   <li>Sorts a column by ascending values</li>
@@ -722,18 +650,16 @@ df.fillna(method='bfill')
   <li>Uses an isin statement to filter rows in the DataFrame</li>
   <li>Selects specific rows and columns</li>
   <li>Removes duplicate rows</li>
-  <li>Removes rows with missing values</li>
-  <li>Fills missing values using .fillna, ffill, or bfill</li>
  </ul>
  </blockquote>
  
 # Summary Statistics and Calculations
 
-141. `pandas` comes with built-in functionality for performing common mathematical and statistical calculations.
+123. `pandas` comes with built-in functionality for performing common mathematical and statistical calculations.
 
-142. Most of these mathematical methods fall under the umbrella of summary statistics.
+124. Most of these mathematical methods fall under the umbrella of summary statistics.
 
-143. We could use `.mean()` to get the average age of Titanic passengers.
+125. We could use `.mean()` to get the average age of Titanic passengers.
 ```Python
 # load titanic data from url
 titanic = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/pandas-intro/main/data/titanic.csv")
@@ -745,31 +671,31 @@ titanic.head(5)
 titanic["Age"].mean()
 ```
 
-144. We could also calculate the median age and ticket fare using `.median()`.
+126. We could also calculate the median age and ticket fare using `.median()`.
 ```Python
 titanic[["Age", "Fare"]].median()
 ```
 
-145. By default, these descriptive statistics will ignore missing data.
+127. By default, these descriptive statistics will ignore missing data.
 
-146. In a situation where missing data or `NaN` values need to be part of the calculation, we would set `skipna` to `False`.
+128. In a situation where missing data or `NaN` values need to be part of the calculation, we would set `skipna` to `False`.
 ```Python
 titanic.sum(axis=0, skipna=True)
 ```
 
-147. In the `.sum()` example, we use `axis=` to specify what axis to perform the mathematical operation on.
+129. In the `.sum()` example, we use `axis=` to specify what axis to perform the mathematical operation on.
 - `axis=0` indicates columns
 - `axis=1` indicates rows
 
-148. `skipna=True` means rows with missing data will not be part of the mathematical operation.
+130. `skipna=True` means rows with missing data will not be part of the mathematical operation.
 
-149. Remember `.describe()` returns aggregate information on the entire dataset.
+131. Remember `.describe()` returns aggregate information on the entire dataset.
 
-150. We can use `.agg()` to return specific combinations of aggregate statistics for specific columns.
+132. We can use `.agg()` to return specific combinations of aggregate statistics for specific columns.
 
-151. Say we wanted to compute `min`, `max`, `median`, and `skew` for the `Age` column and `min`, `max`, `median`, and `mean` for the `Fare` column.
+133. Say we wanted to compute `min`, `max`, `median`, and `skew` for the `Age` column and `min`, `max`, `median`, and `mean` for the `Fare` column.
 
-152. We can specify those statistics and those columns using `.agg()`.
+134. We can specify those statistics and those columns using `.agg()`.
 ```Python
 titanic.agg(
   {
@@ -779,76 +705,76 @@ titanic.agg(
  )
 ```
 
-153. Consult `pandas` ["Descriptive statistics"](https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#descriptive-statistics) documentation for more on descriptive statistics in `pandas`.
+134. Consult `pandas` ["Descriptive statistics"](https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#descriptive-statistics) documentation for more on descriptive statistics in `pandas`.
 
-154. We can also aggregate summary statistics by category, using `.groupby()`.
+135. We can also aggregate summary statistics by category, using `.groupby()`.
 
-155. To find out the average age for female versus male passengers:
+136. To find out the average age for female versus male passengers:
 ```Python
 titanic[["Sex", "Age"]].groupby("Sex").mean()
 ```
 
-156. The first set of brackets (`[]`) isolates a subselection with only these two columns.
+137. The first set of brackets (`[]`) isolates a subselection with only these two columns.
 
-157. Then we apply the `.groupby()` method to the `Sex` column to calculate `.mean()` for each unique value represented in the `Sex` field.
+138. Then we apply the `.groupby()` method to the `Sex` column to calculate `.mean()` for each unique value represented in the `Sex` field.
 
 <p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_1.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_1.svg?raw=true" /></a></p>
 
-158. Generally speaking, this type of `pandas` operation follows a `split-apply-combine` pattern.
+139. Generally speaking, this type of `pandas` operation follows a `split-apply-combine` pattern.
 - First we `split` the data into groups.
 - Then we `apply` a function to each group independently.
 - Then we `combine` the function results into a data structure.
 
-159. `pandas` syntax combines the `apply` and `combine` steps.
+140. `pandas` syntax combines the `apply` and `combine` steps.
 
-160. Another way to calculate average age by gender:
+141. Another way to calculate average age by gender:
 ```Python
 titanic.groupby("Sex")["Age"].mean()
 ```
 
 <p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true" /></a></p>
 
-161. In this alternate example, the column name in the `.groupby()` parenthesis specifies the column to group by.
+142. In this alternate example, the column name in the `.groupby()` parenthesis specifies the column to group by.
 
-162. The column name in brackets (`[]`) specifies the column to perform the mathematical function on.
+143. The column name in brackets (`[]`) specifies the column to perform the mathematical function on.
 
-163. As a last example, let's say we want the mean ticket fare price for each of the gender and cabin class combinations.
+144. As a last example, let's say we want the mean ticket fare price for each of the gender and cabin class combinations.
 
-164. We can think through the underlying logic for that program.
+145. We can think through the underlying logic for that program.
 - First we need to `split` the data into groups for gender and cabin class
 - Then we need to `apply` a mean calculation to the ticket fare column for each of those  groups
 - The last step will be to `combine` all that information into a data structure
 
-165. To express that programatically in Python:
+146. To express that programatically in Python:
 ```Python
 titanic.groupby(["Sex", "Pclass"])["Fare"].mean()
 ```
 
-166. Consult `pandas` ["Group by" documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby) to learn more about this function.
+147. Consult `pandas` ["Group by" documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby) to learn more about this function.
 
-167. We can also count the number of records by category using `.value_counts()`.
+148. We can also count the number of records by category using `.value_counts()`.
 
-168. The `.value_counts()` method returns the number of records for each category in a column.
+149. The `.value_counts()` method returns the number of records for each category in a column.
 
-169. Let's say we wanted to know the number of passengers for each cabin class.
+150. Let's say we wanted to know the number of passengers for each cabin class.
 
-170. Thinking through the underlying logic, we want Python to count how many records are contained for each unique value in the `Pclass` column.
+151. Thinking through the underlying logic, we want Python to count how many records are contained for each unique value in the `Pclass` column.
 
-171. That requires identifying the unique values, counting the number of instances for each, and returning those values as a sum.
+152. That requires identifying the unique values, counting the number of instances for each, and returning those values as a sum.
 
-172. To express that progrmatically in Python:
+153. To express that progrmatically in Python:
 ```Python
 titanic["Pclass"].value_counts()
 ```
 
-173. We could also break out these steps using a combination of `.groupby()` and `.count()`:
+154. We could also break out these steps using a combination of `.groupby()` and `.count()`:
 ```Python
 titanic.groupby("Pclass")["Pclass"].count()
 ```
 
-174. In the second example, we are explicitly categorizing the data by category in the `Pclass` column, then performing a `.count()` operation on the records for each `Pclass` category.
+155. In the second example, we are explicitly categorizing the data by category in the `Pclass` column, then performing a `.count()` operation on the records for each `Pclass` category.
 
-175. A few key takeaways:
+156. A few key takeaways:
 - We can calculate aggregate statistics for entire rows or columns
 - `.groupby()` follows a `split-apply-combine` pattern
 - `.value_counts()` can be a shorthand for getting the number of entries for each category in a field
@@ -857,9 +783,9 @@ titanic.groupby("Pclass")["Pclass"].count()
 
 ## Creating New Columns Based on Existing Columns
 
-176. Let's introduce a new sample dataset, this time with air quality data for measurement stations in London, Paris, and Antwerp.
+157. Let's introduce a new sample dataset, this time with air quality data for measurement stations in London, Paris, and Antwerp.
 
-177. Values in this dataset include nitrogen dioxide (<code>NO<sub>2</sub></code>) concentration expressed as parts per million (`ppm`).
+158. Values in this dataset include nitrogen dioxide (<code>NO<sub>2</sub></code>) concentration expressed as parts per million (`ppm`).
 
 ```Python
 # load air quality data from url
@@ -869,227 +795,71 @@ air_quality = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pand
 air_quality.head()
 ```
 
-178. Let's say we wanted to express the London station's <code>NO<sub>2</sub></code> concentration as milligrams per cubic meter (mg/m<sup>3</sup>).
+159. Let's say we wanted to express the London station's <code>NO<sub>2</sub></code> concentration as milligrams per cubic meter (mg/m<sup>3</sup>).
 
-179. For our purposes, we are assuming a temperature of 25 degrees Celsius and pressure of 1013 hPa, which means the conversion factor is 1.882.
+160. For our purposes, we are assuming a temperature of 25 degrees Celsius and pressure of 1013 hPa, which means the conversion factor is 1.882.
 
-180. We would need to convert all of the `station_london` column values from `ppm` to <code>mg/m<sup>3</sup></code>. And we would want to store the results of that calculation in a newly-created column.
+161. We would need to convert all of the `station_london` column values from `ppm` to <code>mg/m<sup>3</sup></code>. And we would want to store the results of that calculation in a newly-created column.
 
 <p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_2.svg?raw=true" /></a></p>
 
-181. To express those steps programatically in Python:
+162. To express those steps programatically in Python:
 ```Python
 air_quality["london_mg_per_cubic"] = air_quality["station_london"] * 1.882
 
 air_quality.head()
 ```
 
-182. Note that we do not need to iterate over all rows for a specific dataframe column to perform this calculation.
+163. Note that we do not need to iterate over all rows for a specific dataframe column to perform this calculation.
 
-183. `pandas` performs the calculation `element_wise`, that is on all of the values in the column at once.
+164. `pandas` performs the calculation `element_wise`, that is on all of the values in the column at once.
 
-184. Let's say we wanted to calculate the ratio of the Paris versus Antwerp station values and store that result in a new column.
+165. Let's say we wanted to calculate the ratio of the Paris versus Antwerp station values and store that result in a new column.
 
-185. We would need to calculate the ratio for each row and store the results of the calculation in a new column.
+166. We would need to calculate the ratio for each row and store the results of the calculation in a new column.
 
 <p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_3.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_3.svg?raw=true" /></a></p>
 
-186. To express those steps programatically in Python:
+167. To express those steps programatically in Python:
 ```Python
 air_quality["ratio_paris_antwerp"] = (air_quality["station_paris"] / air_quality["station_antwerp"])
 
 air_quality.head()
 ```
 
-187. Again, because this is an element-wise calculation, the division operation is applied to all rows in the data frame.
+168. Again, because this is an element-wise calculation, the division operation is applied to all rows in the data frame.
 
-188. Python's other mathematical (`+`, `-`, `*`, `/`) and logical (`<`, `>`, `=`, etc.) all work element-wise.
+169. Python's other mathematical (`+`, `-`, `*`, `/`) and logical (`<`, `>`, `=`, etc.) all work element-wise.
 
 <blockquote>Q6: Describe element-wise calculation in your own words.</blockquote>
 
 <blockquote>Q7: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.</blockquote>
 
-# Combining Data
-
-189. The SQL queries and joins lab covered how we can use joins in a relational database system to create new data structures.
-
-190. `pandas` has somewhat similar functionality that allows you to merge and combine data from multiple tables.
-
-191. `pandas.merge` connects rows in DataFrames based on one or more key fields. This is similar to SQL JOIN operations.
-
-192. `pandas.concat` concatenates or "stacks" objects together along an axis.
-
-193. `combine_first` allows you to splice overlapping data to fill in missing values.
-
-194. Let's load more new air quality datasets.
-- The `air_quality_no2_long.csv` file provies NO<sub>2</sub> values for three measurement stations.
-- The `air_quality_pm25_long.csv` file provides PM<sub>25</sub> values (particulate matter less than 2.5 micrometers) for the same three measurement stations.
-- The `air_quality_stations.csv` file provides latitude and longitude coordinates for five different measurement stations.
-- The `air_quality_parameters.csv` file provides parameter full description and name for five different element types.
-
-195. To load these datasets:
-```Python
-# load no2 observation data
-air_quality_no2 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_long.csv", parse_dates=True)
-
-# set column names
-air_quality_no2 = air_quality_no2[["date.utc", "location", "parameter", "value"]]
-
-# make sure columns are renamed and no2 data is loaded
-air_quality_no2.head()
-
-# load pm25 data
-air_quality_pm25 = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_pm25_long.csv", parse_dates=True)
-
-# rename columns
-air_quality_pm25 = air_quality_pm25[["date.utc", "location", "parameter", "value"]]
-
-# make sure columns are renamed and pm25 data is loaded
-air_quality_pm25.head()
-
-# load coordinates data
-stations_coord = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_stations.csv")
-
-# make sure coordinate data is loaded
-stations_coord.head()
-
-# load parameter data
-air_quality_parameters = pd.read_csv("https://raw.githubusercontent.com/kwaldenphd/eda-pandas/main/data/air_quality_parameters.csv")
-
-# make sure parameter data is loaded
-air_quality_parameters.head()
-```
-
-## `.concat()`
-
-196. Let's say we want to combine the NO<sub>2</sub> and PM<sub>25</sub> measurements in a single table.
-
-197. Since the two original tables have a similar strucure, we can perform a concatenation operation on multiple tables using one of the axes.
-
-<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_10.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_10.svg?raw=true" /></a></p>
-
-198. We can do this using the `.contact()` function.
-```Python
-air_quality = pd.concat([air_quality_pm25, air_quality_no2], axis=0)
-
-air_quality.head()
-```
-
-199. The default for `.concat()` is axis 0, so the resulting table combines the input table rows.
-
-200. Remember in a `pandas` dataframe axis `0` is vertical (rows) and axis `1` is horizontal (columns).
-
-201. We can verify the concatenation operation worked by checking the same of each original table and the concatenated table.
-```Python
-print('Shape of the ``air_quality_pm25`` table: ', air_quality_pm25.shape)
-
-print('Shape of the ``air_quality_no2`` table: ', air_quality_no2.shape)
-
-print('Shape of the resulting ``air_quality`` table: ', air_quality.shape)
-```
-
-202. Some fast math tells us that 1110 + 2068 is 3178, the number of rows in the combined table.
-
-203. We can sort the new table to see the combined data.
-```Python
-air_quality = air_quality.sort_values("date.utc")
-
-air_quality.head()
-```
-
-204. The data sorted by `data.utc` shows observations for both NO<sub>2</sub> and PM<sub>25</sub>.
-
-205. In this example, the resulting values in the `parameter` column make it easy to see what data came from each original table.
-
-206. In a situation where we don't have something like the `parameter` column, we can add an additional row index can help identify the data source.
-```Python
-air_quality_ = pd.concat([air_quality_pm25, air_quality_no2], keys=["PM25", "NO2"])
-
-air_quality_.head()
-```
-
-207. By giving a `keys` argument to the `.concat()` function, we create a hierarchical index or a MultiIndex.
-
-208. We encountered MultiIndex previously when looking at `.stack()` and `.unstack()`.
-
-209. Consult the `pandas` [documentation on object concatenation](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html#merging-concat) for more on this function.
-
-## `.merge()`
-
-210. We can also join table using a common identifier with `.merge()`.
-
-211. Let's say we wanted to add station location coordinates to corresponding rows in the measurements table.
-
-212. We have this data loaded as `stations_coord`.
-
-<p align="center"><a href="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_11.svg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/eda-pandas/blob/main/figures/Figure_11.svg?raw=true" /></a></p>
-
-213. We can merge the `stations_coord` and `air_quality` data frames based on a common field, `location`.
-
-214. To express this programatically in Python
-```Python
-air_quality = pd.merge(air_quality, stations_coord, how="left", on="location")
-
-air_quality.head()
-```
-
-215. You might notice some similarities with SQL join syntax, in that we're are specifying the origin and target tables, the type of join, and the key field.
-
-216. Specifying a left join means only locations in the original `air_quality` dataframe will be retained.
-
-217. Let's say we want to add the parameter full description and name to the measurements table.
-
-218. We already have the parameter data loaded in the `air_quality_parameters` dataframe.
-
-219. In this example, there is no common column name.
-
-220. However, we can `parameter` column in the `air_quality` data frame has a common format with the `id` column in the `air_quality_parameters` datarame.
-
-221. We can use the `left_on` and `right_on` arguments to specify the fields to join on.
-
-```Python
-air_quality = pd.merge(air_quality, air_quality_parameters, how='left', left_on='parameter', right_on='id')
-
-air_quality.head()
-```
-
-222. For more on different join/merge types:
-- [database style merging `pandas` documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html#merging-join)
-- [SQL comparison page in `pandas` documentation](https://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html#compare-with-sql-join)
-
-223. Our key takeaways from this section:
-- Mutliple tables can be concatenated row-rise or column-wise using the `.concat()` function
-- SQL-style joins can be accomplished using `.merge()`
-
-<blockquote>Q8: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?</blockquote>
-
-<blockquote>Q9: Write sample code for both functions. Include code + comments.</blockquote>
-
 # Renaming, Mapping, and Reindexing
 
-224. As a result or as part of data wrangling operations, you may need to rename columns or renumber the rows in a dataframe.
+170. As a result or as part of data wrangling operations, you may need to rename columns or renumber the rows in a dataframe.
 
 ## Renaming Columns
 
-225. We can use `.rename()` to rename columns in a dataframe.
+171. We can use `.rename()` to rename columns in a dataframe.
 
-226. We use a dictionary's key-value pairs to specify the new name for an existing column.
+172. We use a dictionary's key-value pairs to specify the new name for an existing column.
 
-227. To do this in place and change the names in an existing dataframe:
+173. To do this in place and change the names in an existing dataframe:
 ```Python
 data_frame.rename(columns={"old_name_1": "new_name_1", "old_name_2": "new_name_2", "old_name_3": "new_name_3"})
 
 data_frame.head()
 ```
 
-228. We can also create a new dataframe with the renamed columns.
+174. We can also create a new dataframe with the renamed columns.
 ```Python
 new_data_frame = old_data_frame.rename(columns={"old_name_1": "new_name_1", "old_name_2": "new_name_2", "old_name_3": "new_name_3"})
 
 new_data_frame.head()
 ```
 
-229. We can also standardize axis labels using `str` case methods (`upper`, `lower`, `title`, etc.)
+175. We can also standardize axis labels using `str` case methods (`upper`, `lower`, `title`, etc.)
 ```Python
 # relabel index labels to upper case version of existing labels
 data_frame.rename(str.upper)
@@ -1098,56 +868,56 @@ data_frame.rename(str.upper)
 data_frame.rename(str.lower)
 ```
 
-230. We can also rename row index labels usign `.rename()`.
+176. We can also rename row index labels usign `.rename()`.
 ```Python
 data_frame.rename({"old_row_1": "new_row_1", "old_row_2": "new_row_2", "old_row_3": "new_row_3"}, axis="index")
 ```
 
-231. In the `data_frame.rename()` examples, the `.rename()` method is applied to a copy of the data--the underlying data is not changed.
+177. In the `data_frame.rename()` examples, the `.rename()` method is applied to a copy of the data--the underlying data is not changed.
 
-232. To alter the underlying data, we would set the `inplace` parameter to `True`.
+178. To alter the underlying data, we would set the `inplace` parameter to `True`.
 ```Python
 data_frame.rename(RENAMING OPERATION, inplace=True)
 ```
 
-233. For more on renaming functions, consult the `pandas` documentation for [`pandas.DataFrame.rename`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html#pandas.DataFrame.rename).
+179. For more on renaming functions, consult the `pandas` documentation for [`pandas.DataFrame.rename`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html#pandas.DataFrame.rename).
 
-234. We can also imagine a scenario in which you have sliced or filtered the data and now have row index labels that no longer make sense.
+180. We can also imagine a scenario in which you have sliced or filtered the data and now have row index labels that no longer make sense.
 
-235. For example, if your original rows had sequential numerical index labels, the transformed data will retain the original index labels.
+181. For example, if your original rows had sequential numerical index labels, the transformed data will retain the original index labels.
 
-236. In these situations, we can reset the index to a simple ascending integer index using `.reset_index()`.
+182. In these situations, we can reset the index to a simple ascending integer index using `.reset_index()`.
 
 ```Python
 data_frame.reset_index()
 ```
 
-237. For more on indexing, consult `pandas` ["Different choices for indexing"](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html?highlight=reindex#different-choices-for-indexing) documentation.
+183. For more on indexing, consult `pandas` ["Different choices for indexing"](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html?highlight=reindex#different-choices-for-indexing) documentation.
 
 # Getting started with `matplotlib`
 
-238. For our purposes, a plot is defined as "a graphic representation (such as a chart)" (Merriam Webster).
+184. For our purposes, a plot is defined as "a graphic representation (such as a chart)" (Merriam Webster).
 
-239. These graphic representations of data are often called charts, graphs, figures, etc. 
+185. These graphic representations of data are often called charts, graphs, figures, etc. 
 
-240. In the context of programming, computer science, and data science, we refer to these as plots.
+186. In the context of programming, computer science, and data science, we refer to these as plots.
 
-241. We can generate plots for data stored in `pandas` using the `matplotlib` package.
+187. We can generate plots for data stored in `pandas` using the `matplotlib` package.
 
-242. `matplotlib` was developed in 2002 as a MATLAB-like plotting interface for Python.
+188. `matplotlib` was developed in 2002 as a MATLAB-like plotting interface for Python.
 
-243. "Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python...Matplotlib produces publication-quality figures in a variety of hardcopy formats and interactive environments across platforms. Matplotlib can be used in Python scripts, the Python and IPython shell, web application servers, and various graphical user interface toolkits" ([Matplotlib documentation, Github](https://github.com/matplotlib/matplotlib))
+189. "Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python...Matplotlib produces publication-quality figures in a variety of hardcopy formats and interactive environments across platforms. Matplotlib can be used in Python scripts, the Python and IPython shell, web application servers, and various graphical user interface toolkits" ([Matplotlib documentation, Github](https://github.com/matplotlib/matplotlib))
 
-244. As described [by the original developer John Hunter](https://matplotlib.org/users/history.html), "Matplotlib is a library for making 2D plots of arrays in Python. Although it has its origins in emulating the MATLAB graphics commands, it is independent of MATLAB, and can be used in a Pythonic, object oriented way. Although Matplotlib is written primarily in pure Python, it makes heavy use of NumPy and other extension code to provide good performance even for large arrays. Matplotlib is designed with the philosophy that you should be able to create simple plots with just a few commands, or just one! If you want to see a histogram of your data, you shouldn't need to instantiate objects, call methods, set properties, and so on; it should just work."
+190. As described [by the original developer John Hunter](https://matplotlib.org/users/history.html), "Matplotlib is a library for making 2D plots of arrays in Python. Although it has its origins in emulating the MATLAB graphics commands, it is independent of MATLAB, and can be used in a Pythonic, object oriented way. Although Matplotlib is written primarily in pure Python, it makes heavy use of NumPy and other extension code to provide good performance even for large arrays. Matplotlib is designed with the philosophy that you should be able to create simple plots with just a few commands, or just one! If you want to see a histogram of your data, you shouldn't need to instantiate objects, call methods, set properties, and so on; it should just work."
 
-245. For more on `matplotlib`'s development and history: John Hunter, ["History"](https://matplotlib.org/users/history.html) *Matplotlib* (2008)
+191. For more on `matplotlib`'s development and history: John Hunter, ["History"](https://matplotlib.org/users/history.html) *Matplotlib* (2008)
 
-246. To be able to call the `matplotlib` API (application programming interface) within Python, we need to make sure the package is installed and loaded.
+192. To be able to call the `matplotlib` API (application programming interface) within Python, we need to make sure the package is installed and loaded.
 - To install at the command line: `pip install matplotlib`
 - To load in a `.py` script: `import matplotlib.pyplot as plot`
 - To work with `matplotlib` from a Jupyter notebook: `%matplotlib notebook`
 
-247. The default `matplotlib` plot is a line plot.
+193. The default `matplotlib` plot is a line plot.
 
 ```Python
 # import matplotlib
@@ -1163,21 +933,21 @@ data = np.arange(10)
 plt.plot(data)
 ```
 
-248. We pass our data to `plt.plot()` and a line plot is generated.
+194. We pass our data to `plt.plot()` and a line plot is generated.
 
-249. Plots in `matplotlib` reside within a `Figure` object.
+195. Plots in `matplotlib` reside within a `Figure` object.
 
-250. These figures contain one or more `Axes`, which are the area where points can be added or specified usign x-y coordinates for 2-D plots.
+196. These figures contain one or more `Axes`, which are the area where points can be added or specified usign x-y coordinates for 2-D plots.
 
-251. Once the `Figure` object has been created, we can add start adding elements to the plot.
+197. Once the `Figure` object has been created, we can add start adding elements to the plot.
 
-252. The easiest way to create a figure is using `pyplot.subplots()`.
+198. The easiest way to create a figure is using `pyplot.subplots()`.
 
-253. NOTE: Because we have loaded the package using `import matplotlib.pyplot as plot`, we can use `plt` as shorthand for `pyplot`.
+199. NOTE: Because we have loaded the package using `import matplotlib.pyplot as plot`, we can use `plt` as shorthand for `pyplot`.
 
-254. We can then use `axes.plot()` to create axes and add data.
+200. We can then use `axes.plot()` to create axes and add data.
 
-255. Another line plot using a list of number values:
+201. Another line plot using a list of number values:
 ```Python
 # import package
 import matplotlib.pyplot as plt
@@ -1189,13 +959,13 @@ fig, ax = plt.subplots()
 ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
 ```
 
-256. We can see the first list of `1, 2, 3, 4` is shown on the `X` axis.
+202. We can see the first list of `1, 2, 3, 4` is shown on the `X` axis.
 
-257. The second list `1, 4, 2, 3` is shown on the `Y` axis.
+203. The second list `1, 4, 2, 3` is shown on the `Y` axis.
 
-258. NOTE: The `Y` axis values are plotted in the original order--for this type of plot (a line plot), `matplotlib` keeps the list data in its original order.
+204. NOTE: The `Y` axis values are plotted in the original order--for this type of plot (a line plot), `matplotlib` keeps the list data in its original order.
 
-259. Let's generate a line plot using a square number sequence
+205. Let's generate a line plot using a square number sequence
 
 ```Python
 # import matplotlib
@@ -1217,29 +987,29 @@ ax.plot(input_values, squares)
 plt.show()
 ```
 
-260. In this example, we import `matplotlib` and create two lists, `squares` and `input_values` that hold the data that will be plotted.
+206. In this example, we import `matplotlib` and create two lists, `squares` and `input_values` that hold the data that will be plotted.
 
-261. NOTE: We need to specify `input_values`, because the default in `matplotlib` will start the axis at `0`.
+207. NOTE: We need to specify `input_values`, because the default in `matplotlib` will start the axis at `0`.
 
-262. We then create a new variable `fig` that represents the entire figure or collection of plots.
+208. We then create a new variable `fig` that represents the entire figure or collection of plots.
 
-263. The variable `ax` represents a single plot in the `fig` figure.
+209. The variable `ax` represents a single plot in the `fig` figure.
 
-264. We then pass `squares` to the `plot()` method to create the plot.
+210. We then pass `squares` to the `plot()` method to create the plot.
 
-265. And `plt.show()` opens the `matplotlib` viewer to show us the newly-generated plot.
+211. And `plt.show()` opens the `matplotlib` viewer to show us the newly-generated plot.
 
-266. From within the `matplotlib` viewer, we can zoom in and navigate the plot, as well as save images of the plot.
+212. From within the `matplotlib` viewer, we can zoom in and navigate the plot, as well as save images of the plot.
 
 # Anatomy of a `matplotlib` figure
 
-267. Before we start customizing plots or generating more complex plots, it's useful to know the components of a `matplotlib` figure.
+213. Before we start customizing plots or generating more complex plots, it's useful to know the components of a `matplotlib` figure.
 
 <p align="center"><a href="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_1.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_1.png?raw=true" /></a></p>
 
 ## `Figure`
 
-268. `Figure`: A figure object that can include multiple `Axes` or plots; a `Figure` contains at least one `Axes`
+214. `Figure`: A figure object that can include multiple `Axes` or plots; a `Figure` contains at least one `Axes`
 
 ```Python
 # create an empty figure with no axes
@@ -1252,57 +1022,55 @@ fig, ax = plt.subplots()
 fig, axs = plt.subplots(2, 2)
 ```
 
-269. Having multiple `Axes` in the same `Figure` is useful when creating side-by-side visualizations or a dashboard-style collection of visualizations.
+215. Having multiple `Axes` in the same `Figure` is useful when creating side-by-side visualizations or a dashboard-style collection of visualizations.
 
 ## `Axes`
 
-270. In `matplotlib` syntax, `Axes` are what we would think of as a single plot, where data is plotted.
+216. In `matplotlib` syntax, `Axes` are what we would think of as a single plot, where data is plotted.
 
-271. A `Figure` can contain many `Axes`, but a given `Axes` object can only be in one `Figure`.
+217. A `Figure` can contain many `Axes`, but a given `Axes` object can only be in one `Figure`.
 
-272. For cartesian coordinate plane visualizations, an `Axes` contains two `Axis` objects.
+218. For cartesian coordinate plane visualizations, an `Axes` contains two `Axis` objects.
 
 ## `Axis`
 
-273. `matplotlib` works in a Cartesian coordinate system, with an `X` (horizontal) and `Y` (vertical) axis.
+219. `matplotlib` works in a Cartesian coordinate system, with an `X` (horizontal) and `Y` (vertical) axis.
 
-274. In a `matplotlib` plot, the `Axis` objects set graph limits and generate tick marks and labels.
+220. In a `matplotlib` plot, the `Axis` objects set graph limits and generate tick marks and labels.
 
-275. The location of ticks is determined by a `Locator` object.
+221. The location of ticks is determined by a `Locator` object.
 
-276. Tick labels are strings formatted using `Formatter`.
+222. Tick labels are strings formatted using `Formatter`.
 
 ## Everything Else (`Artists`)
 
-277. The other components of the `Figure` include things like axis labels, marker or line style, tick labels, figure title, etc.
+223. The other components of the `Figure` include things like axis labels, marker or line style, tick labels, figure title, etc.
 
-278. These are all referred to as `Artists` in `matplotlib` documentation.
+224. These are all referred to as `Artists` in `matplotlib` documentation.
 
-279. Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
+225. Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
 
-<blockquote>Q10: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?</blockquote>
-
-280. For more on `matplotlib`:
+226. For more on `matplotlib`:
 - [Introduction to `matplotlib`](https://github.com/kwaldenphd/matplotlib-intro)
 - [More with `matplotlib`](https://github.com/kwaldenphd/more-with-matplotlib/)
 
 # `pandas` and `matplotlib`
 
-281. Having to load data manually to build a visualization or plot gets cumbersome quickly.
+227. Having to load data manually to build a visualization or plot gets cumbersome quickly.
 
-282. In many situations, we might want to work with data in a `pandas` `DataFrame` when building a visualization.
+228. In many situations, we might want to work with data in a `pandas` `DataFrame` when building a visualization.
 
-283. `pandas` includes a `.plot()` attribute that interacts with the `matplotlib` API to generate plots.
+229. `pandas` includes a `.plot()` attribute that interacts with the `matplotlib` API to generate plots.
 
-284. The `pandas` `.plot()` attribute relies on the `matplotlib` API to generate plots, so our work with `matplotlib` will come in handy when we need to customize plots generated using `.plot()`.
+230. The `pandas` `.plot()` attribute relies on the `matplotlib` API to generate plots, so our work with `matplotlib` will come in handy when we need to customize plots generated using `.plot()`.
 
-285. And in many cases, the `.plot()` syntax is similar to `matplotlib` `OO` syntax.
+231. And in many cases, the `.plot()` syntax is similar to `matplotlib` `OO` syntax.
 
 ## Plotting in `pandas` Using `.plot()`
 
-286. Let's go back to the air quality data we were working with previously in `pandas`.
+232. Let's go back to the air quality data we were working with previously in `pandas`.
 
-287. To load the data as a dataframe:
+233. To load the data as a dataframe:
 ```Python
 # import pandas
 import pandas as pd
@@ -1314,7 +1082,7 @@ air_quality = pd.read_csv('https://raw.githubusercontent.com/kwaldenphd/more-wit
 air_quality.head()
 ```
 
-288. We can do a quick visual check of the data by passing the entire data frame to `.plot()`.
+234. We can do a quick visual check of the data by passing the entire data frame to `.plot()`.
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plt
@@ -1326,40 +1094,40 @@ air_quality.plot()
 plt.show()
 ```
 
-289. This isn't a particularly meaningful visualization, but it shows us how the default for `.plot()` creates a line for each column with numeric data.
+235. This isn't a particularly meaningful visualization, but it shows us how the default for `.plot()` creates a line for each column with numeric data.
 
-290. The index is used for the `X` axis, and all numeric columns are plotted on the `Y` axis.
+236. The index is used for the `X` axis, and all numeric columns are plotted on the `Y` axis.
 
-291. We can also see that `.plot()` pulls tick marks, tick labels, and axis titles from the underlying `dataframe`.
+237. We can also see that `.plot()` pulls tick marks, tick labels, and axis titles from the underlying `dataframe`.
 
-292. Let's say we only wanted to plot Paris data.
+238. Let's say we only wanted to plot Paris data.
 
-293. We can select that column in the `dataframe` before calling `.plot()`.
+239. We can select that column in the `dataframe` before calling `.plot()`.
 ```Python
 air_quality["station_paris"].plot()
 ```
 
-294. We can plot a specific column in the `dataframe` using the `[" "]` selection method.
+240. We can plot a specific column in the `dataframe` using the `[" "]` selection method.
 
-295. Let's say we want to visually compare NO<sub>2</sub> values measured in London and Paris.
+241. Let's say we want to visually compare NO<sub>2</sub> values measured in London and Paris.
 
-296. We need to specify what column is going to be used for the `X` axis as well as what column is going to be used for the `Y` axis.
+242. We need to specify what column is going to be used for the `X` axis as well as what column is going to be used for the `Y` axis.
 
-297. For this example, a scatterplot will be more effective than a lineplot.
+243. For this example, a scatterplot will be more effective than a lineplot.
 
-298. We can create a scatterplot using `.plot.scatter()`.
+244. We can create a scatterplot using `.plot.scatter()`.
 
 ```Python
 air_quality.plot.scatter(x="station_london", y="station_paris", alpha=0.5)
 ```
 
-299. This example generates a scatterplot with London data on the `X` axis and Paris data on the `Y` axis.
+245. This example generates a scatterplot with London data on the `X` axis and Paris data on the `Y` axis.
 
-300. While the default for `.plot()` is a lineplot, there are a number of other methods we can use with `.plot()`.
+246. While the default for `.plot()` is a lineplot, there are a number of other methods we can use with `.plot()`.
 
-301. Again, you will see some overlap with `matplotlib` syntax.
+247. Again, you will see some overlap with `matplotlib` syntax.
 
-302. We can use these strings as as method in combination with `.plot()` or we can pass them to `.plot()` as a `kind` parameter.
+248. We can use these strings as as method in combination with `.plot()` or we can pass them to `.plot()` as a `kind` parameter.
 
 Plot Type | Method Syntax | Parameter Syntax
 --- | --- | ---
@@ -1376,26 +1144,26 @@ Line | `.plot.line()` | `.plot(kind='line')` *this would be redundant since the 
 Pie | `.plot.pie()` | `.plot(kind='pie')`
 Scatter | `.plot.scatter()` | `.plot(kind='scatter')`
 
-303. In general, it's more effective to use the method syntax to note plot type, rather than treating plot type as a parameter.
+249. In general, it's more effective to use the method syntax to note plot type, rather than treating plot type as a parameter.
 
-304. Let's create a box plot using our air quality data.
+250. Let's create a box plot using our air quality data.
 ```Python
 air_quality.plot.box()
 ```
 
-305. We can see each numeric column (each station) has its own box in the default boxplot.
+251. We can see each numeric column (each station) has its own box in the default boxplot.
 
-306. Let's say we wanted to generate a lineplot with separate subplots for each of the numeric columns.
+252. Let's say we wanted to generate a lineplot with separate subplots for each of the numeric columns.
 
-307. We can accomplish this by setting the `subplots` parameter to `True`.
+253. We can accomplish this by setting the `subplots` parameter to `True`.
 
 ```Python
 axs = air_quality.plot.area(figsize=(12, 4), subplots=True)
 ```
 
-308. Let's say we want to further customize this plot.
+254. Let's say we want to further customize this plot.
 
-309. This is where we start to see more `matplotlib` syntax in play.
+255. This is where we start to see more `matplotlib` syntax in play.
 
 ```Python
 # create figure and axes
@@ -1411,15 +1179,15 @@ axs.set_ylabel("NO$_2$ concentration")
 fig.savefig("no2_concentrations.png")
 ```
 
-310. Each plot object created by `pandas` is also a `matplotlib` object.
+256. Each plot object created by `pandas` is also a `matplotlib` object.
 
-311. Having a deep knowledge of `matplotlib` allows you to customize plots generated using `pandas` `.plot()` function.
+257. Having a deep knowledge of `matplotlib` allows you to customize plots generated using `pandas` `.plot()` function.
 
-312. That said, there are some parameters you can set as part of `.plot()` without having to have separate `matplotlib` syntax commands.
+258. That said, there are some parameters you can set as part of `.plot()` without having to have separate `matplotlib` syntax commands.
 
-313. The plot `kind` is one parameter option, as is the `dataframe`, `X` axis data, and `Y` axis data.
+259. The plot `kind` is one parameter option, as is the `dataframe`, `X` axis data, and `Y` axis data.
 
-314. Other parameters:
+260. Other parameters:
 
 Parameter | Explanation
 --- | ---
@@ -1442,12 +1210,9 @@ Parameter | Explanation
 `table` | Default is `False`; set to `True` to draw a table from data in the `DataFrame`
 `stacked` | Default is `False` in line and bar plots, `True` in area plot; if `True`, creates stacked plot
 
-315. For more parameters that can be passed to `.plot()`: [`pandas.DataFrame.plot`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html)
+261. For more parameters that can be passed to `.plot()`: [`pandas.DataFrame.plot`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html)
 
-# Project Prompts
-
-
-
+<blockquote>Q8: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?</blockquote>
 
 # Lab Notebook Questions
 
@@ -1460,7 +1225,7 @@ Q2: Create your own small DataFrame. Write code that accomplishes the following 
 - Remove a column from the DataFrame
 - Determine summary statistics for values in the DataFrame
 
-Q3: Write code that loads in a different CSV file as a DataFrame and accomplishes each of the following tasks. Include code + comments.
+Q3: Write code that loads in a different data file as a DataFrame and accomplishes each of the following tasks. Include code + comments.
 - Shows the first five rows
 - Shows the last five rows
 - Checks the data types for each column
@@ -1475,8 +1240,6 @@ Q4: Using the DataFrame you created for Q3, write code that executes AT LEAST FO
 - Uses an isin statement to filter rows in the DataFrame
 - Selects specific rows and columns
 - Removes duplicate rows
-- Removes rows with missing values
-- Fills missing values using .fillna, ffill, or bfill
 
 Q5: Using the titanic dataset (or another dataset), write code that calculates at least 3 unique summary statistics (.agg() counts as one). Include code + comments for each.
 
@@ -1484,8 +1247,4 @@ Q6: Describe element-wise calculation in your own words.
 
 Q7: Using the air quality data or another dataset, write code that generates a new column based on an existing column(s). Include code + comments.
 
-Q8: In your own words, provide a description for .concat() and .merge(). What do these functions do? How are they different?
-
-Q9: Write sample code for both functions. Include code + comments.
-
-Q10: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?
+Q8: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?
