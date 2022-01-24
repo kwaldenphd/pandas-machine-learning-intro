@@ -28,6 +28,7 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials 
 
 # Table of Contents
 
+- [Lab notebook template](#lab-notebook-template)
 - [What do we mean by `pandas`](#what-do-we-mean-by-pandas)
 - [Data structures in `pandas`](#data-structures-in-pandas)
   * [`DataFrame`](#dataframe)
@@ -52,6 +53,12 @@ All figures shown in this lab are from the `pandas` "Getting Started" tutorials 
 - [`pandas` and `matplotlib`](#pandas-and-matplotlib)
   * [Plotting in `pandas`Uusing `.plot()`](#plotting-in-pandas-using-plot)
 - [Lab Notebook Questions](#lab-notebook-questions)
+
+[Link to this lab procedure as a Jupyter Notebook](https://colab.research.google.com/drive/1e3hLK2UNN6e_6fAeea2nhPvsXoy6-9kC?usp=sharing)
+
+# Lab notebook template
+
+[Click here](https://colab.research.google.com/drive/1HPD6LuBSZjbyAZVwRMD-lBqwB2H3wwxM?usp=sharing) to access the lab notebook template as a Jupyter Notebook.
 
 # What do we mean by pandas
 
@@ -184,38 +191,35 @@ frame2
 
 40. We can select columns in our `DataFrame` using their index labels.
 ```Python
-frame2['state']
-
 # returns state column
+frame2['state']
 ```
 
 41. We can also select a column using the `name` attribute.
 ```Python
-frame2.year
-
 # returns year column
+frame2.year
 ```
 
 42. We can retrieve rows based on their position using the `loc` (location) attribute.
 ```Python
+# returns third row in the dataframe
 frame2.loc['three']
-
-# returns the third row in the dataframe
 ```
 
 ```Python
-frame2.iloc[0:3, :]
-
 # uses numerical index values to retrieve first four rows
+frame2.iloc[0:3, :]
 ```
 
 43. Let's say we wanted to manually assign the values in a particular column, for example the `debt` missing data column.
+
 ```Python
+# returns frame2 DataFrame with newly-assigned 16.5 value for all rows in debt column
 frame2['debt'] = 16.5
 
+# show dataframe
 frame2
-
-# returns frame2 DataFrame with newly-assigned 16.5 value for all rows in debt column
 ```
 
 44. We could also manually insert values for specific rows using their index labels.
@@ -236,6 +240,7 @@ frame2
 
 47. We can remove a column using the `del` keyword.
 ```Python
+# delete column
 del frame2['debt']
 
 # returns updated list of columns
@@ -532,7 +537,7 @@ age_sex.head()
 
 ### Filter
 
-96. As with SQL, we can return rows in our `DataFrame` that meet specific conditions.
+96. We can select or return rows in our `DataFrame` that meet specific conditions.
 
 97. Let's say we wanted to create a new `DataFrame` only containing data for passengers older than 35 years.
 ```Python
@@ -1215,6 +1220,8 @@ Parameter | Explanation
 <blockquote>Q8: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?</blockquote>
 
 # Lab Notebook Questions
+
+[Click here](https://colab.research.google.com/drive/1HPD6LuBSZjbyAZVwRMD-lBqwB2H3wwxM?usp=sharing) to access the lab notebook template as a Jupyter Notebook.
 
 Q1: Describe a DataFrame in your own words.
 
